@@ -1,0 +1,37 @@
+﻿
+@using System.Data
+@{
+    ViewBag.Title = "Student Report";
+    DataTable courses = ViewBag.Courses as DataTable;
+}
+
+<h2>Student Enrollment Report</h2>
+
+@using (Html.BeginForm("Print", "Report", FormMethod.Get))
+{
+    <div class="form-group">
+        <label for="courseId">Select Course:</label>
+
+        <select name="courseId" id="courseId" class="form-control" required>
+            @if (courses != null)
+            {
+                foreach (DataRow course in courses.Rows)
+                {
+                    <option value="@course["CourseID"]">
+                        @course["Title"]
+                    </option>
+                }
+            }
+        </select>
+    </div>
+
+    <button type="submit" name="mode" value="preview"
+            class="btn btn-primary">
+        Print Preview
+    </button>
+
+    <button type="submit" name="mode" value="download"
+            class="btn btn-success">
+        Export PDF
+    </button>
+}

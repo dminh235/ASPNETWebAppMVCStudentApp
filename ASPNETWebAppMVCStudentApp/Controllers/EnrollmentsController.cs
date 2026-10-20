@@ -1,4 +1,6 @@
-﻿using System;
+﻿using ASPNETWebAppMVCStudentApp;
+using ASPNETWebAppMVCStudentApp.Filters;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
@@ -6,10 +8,10 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
-using ASPNETWebAppMVCStudentApp;
 
 namespace ASPNETWebAppMVCStudentApp.Controllers
 {
+    [SessionAuthorize]
     public class EnrollmentsController : Controller
     {
         private SchoolDBEntities db = new SchoolDBEntities();

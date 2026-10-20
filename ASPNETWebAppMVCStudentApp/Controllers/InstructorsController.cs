@@ -7,9 +7,12 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using ASPNETWebAppMVCStudentApp;
+using ASPNETWebAppMVCStudentApp.Filters;
+
 
 namespace ASPNETWebAppMVCStudentApp.Controllers
 {
+    [SessionAuthorize]
     public class InstructorsController : Controller
     {
         private SchoolDBEntities db = new SchoolDBEntities();
